@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultat</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #b5dde7, #dfabe0);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            text-align: left;
+            margin: 10px 0;
+            color: #555;
+        }
+
+        strong {
+            color: #222;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Informations Soumises</h2>
+        <p><strong>Nom :</strong> <span id="nom"></span></p>
+        <p><strong>Email :</strong> <span id="email"></span></p>
+        <p><strong>Problème :</strong> <span id="probleme"></span></p>
+        <p><strong>Commentaire :</strong></p>
+        <p id="commentaire"></p>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById('nom').textContent = params.get('nom');
+        document.getElementById('email').textContent = params.get('email');
+        document.getElementById('probleme').textContent = params.get('probleme');
+        document.getElementById('commentaire').textContent = params.get('commentaire');
+    </script>
+
+</body>
+</html>

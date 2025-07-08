@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire Contact</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #74a4eb, #acb6e5);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            margin-top: 15px;
+            display: block;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            background-color: #9b4caf;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #8e1ebb;
+            
+            color: rgb(17, 17, 17);
+        }
+    </style>
+</head>
+<body>
+
+    <form id="contactForm">
+        <h2>Contactez-nous</h2>
+
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required>
+
+        <label for="email">Adresse e-mail :</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="probleme">Problème :</label>
+        <select id="probleme" name="probleme">
+            <option value="requete">Requête</option>
+            <option value="commentaire">Commentaire</option>
+            <option value="reclamation">Réclamation</option>
+            <option value="autre">Autre</option>
+        </select>
+
+        <label for="commentaire">Commentaire :</label>
+        <textarea id="commentaire" name="commentaire" rows="4"></textarea>
+
+        <button type="submit">Envoyer</button>
+    </form>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nom = document.getElementById('nom').value;
+            const email = document.getElementById('email').value;
+            const probleme = document.getElementById('probleme').value;
+            const commentaire = document.getElementById('commentaire').value;
+
+            const params = new URLSearchParams({
+                nom, email, probleme, commentaire
+            });
+
+            window.location.href = 'resultat.html?' + params.toString();
+        });
+    </script>
+
+</body>
+</html>
